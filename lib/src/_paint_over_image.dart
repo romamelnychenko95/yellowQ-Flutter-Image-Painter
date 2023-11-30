@@ -437,6 +437,8 @@ class ImagePainterState extends State<ImagePainter> {
   late final TextEditingController _textController;
   late final TransformationController _transformationController;
 
+  Controller get controller => _controller;
+
   int _strokeMultiplier = 1;
   late TextDelegate textDelegate;
   @override

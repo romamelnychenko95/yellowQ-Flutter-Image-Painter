@@ -80,8 +80,8 @@ class DrawImage extends CustomPainter {
           canvas.drawPath(_dashPath(path, _painter.strokeWidth), _painter);
           break;
         case PaintMode.freeStyle:
-          for (int i = 0; i < _offset.length - 1; i++) {
-            if (_offset[i] != null && _offset[i + 1] != null) {
+          for (int i = 0; i < _offset.length - 2; i += 2) {
+            if (_offset[i] != null && _offset[i + 2] != null) {
               final _path = Path()
                 ..moveTo(_offset[i]!.dx, _offset[i]!.dy)
                 ..lineTo(_offset[i + 1]!.dx, _offset[i + 1]!.dy);
@@ -147,7 +147,7 @@ class DrawImage extends CustomPainter {
           break;
         case PaintMode.freeStyle:
           final points = _controller.offsets;
-          for (int i = 0; i < _controller.offsets.length - 1; i++) {
+          for (int i = 0; i < _controller.offsets.length - 2; i += 2) {
             if (points[i] != null && points[i + 1] != null) {
               canvas.drawLine(
                   Offset(points[i]!.dx, points[i]!.dy),
